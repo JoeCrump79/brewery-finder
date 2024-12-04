@@ -38,8 +38,8 @@ const getBreweriesByCity = (city, perPage = 10) => {
         });
 };
 
-function renderBreweryDetails(brewery) {
-    const breweryDetails = document.getElementById('brewery-detail')
+function renderBreweryDetails(brewery, breweryDetails) {
+    //const breweryDetails = document.getElementById('brewery-detail')
     const addressElement = document.createElement('p');
         addressElement.textContent = brewery.address_1 || 'Address not available';
 
@@ -63,13 +63,17 @@ const renderBreweries = (breweryInfo) => {
 
         const nameElement = document.createElement('h3');
         nameElement.textContent = brewery.name;
+        const breweryDetails = document.createElement('div')
+        breweryDetails.className = 'brewery-detail';
+        renderBreweryDetails(brewery, breweryDetails)
+
         nameElement.addEventListener('click',() => {
-                renderBreweryDetails(brewery)
+              //Todo: add code to toggle display on brewery-detail div 
         })
 
         // Append elements to the card
         card.appendChild(nameElement);
-        
+        card.appendChild(breweryDetails)
 
         // Append card to the container
         container.appendChild(card);

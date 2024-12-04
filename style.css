@@ -17,7 +17,7 @@ body, css {
     justify-content: space-around;
   }
   
-  #brewery-detail {
-    display: block;
+  .brewery-detail {
+    display: none;
   }
   
